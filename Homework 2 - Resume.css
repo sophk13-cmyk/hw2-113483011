@@ -1,0 +1,175 @@
+	/* 本文有使用chatgpt輔助 */
+	/* 網站大多使用課堂內容做製作，若另有想營造的風格效果，
+	會使用chatght的方式尋求解答，並在程式碼旁邊加以註記。 */
+body {
+	background-color: #1e1e1e;
+	color: #FFEBCD;
+	font-family:  'Consolas', 'Courier New', monospace;
+	/* 製作「黑色方格紙（格線背景）」的效果，用兩條方向不同的漸層，交錯形成細微的網格 */
+	background-image:
+		linear-gradient(0deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+	background-size: 24px 24px;
+	background-attachment: fixed; 
+	padding:10px
+}
+
+/* ---------- header ---------- */
+header {
+    background-color: #1A1A1A;
+    text-align: left;
+    padding: 20px 40px;
+}
+header h1 {
+	color: #E0B97A;
+    font-size: 2em;
+}
+header p {
+    color: #CFAE83;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.blink::after {
+  content: '';  /* 生成一個「空內容」的偽元素 */
+  display: inline-block;  /* 讓偽元素像小方塊一樣出現在文字後方 */
+  width: 8px;
+  height: 18px;
+  background-color: #d4d4d4;
+  animation: blink 1s infinite;  /* 套用名為 blink 的動畫，每秒閃爍一次，無限循環 */
+  vertical-align: bottom;  /* 游標的底部對齊文字底線 */
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+  /* 時間百分比0%和100%，預設透明度是 1（顯示） */
+  /* 時間百分比50%，透明度變為 0（隱藏） */
+}
+
+/* ---------- nav ---------- */
+
+/* ------ 一般桌面模式 ------ */
+nav {
+    background-color: rgb(26, 26, 26, 0,85);
+    text-align: right;
+	padding: 30px;
+    position: sticky;
+	top:0px;
+	backdrop-filter: blur(8px); /* 在元素後面的背景加上一層 模糊濾鏡效果 */
+	box-shadow: 0 4px 6px rgba(0,0,0,0.5);  /* 在元素下方加一層半透明的黑色陰影 */
+}
+#square a {
+    color: #FFD27F;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+#square a:hover {
+    background-color: #FFD27F;
+    color: #000000;
+}
+
+#square a:active {
+    background-color: #EBB95C;
+    color: #000000;
+}
+
+/* ---------- 手機版（螢幕寬度小於 480px） ---------- */
+@media (max-width: 480px) {
+	nav {
+		background-color: rgb(26, 26, 26, 0,85);
+		position: fixed;              /* 固定在螢幕上 */
+		top: 0;
+		right: 0;                     /* 貼在右邊 */
+		width: 60px;                  /* 導覽列寬度 */
+		height: 40%;                 /* 佔滿整個螢幕高度 */
+		display: flex;
+		flex-direction: column;       /* 垂直排列 */
+		align-items: center;          /* 水平置中 */
+		justify-content: center;      /* 垂直置中 */
+	backdrop-filter: blur(8px); /* 在元素後面的背景加上一層 模糊濾鏡效果 */
+	box-shadow: 0 4px 6px rgba(0,0,0,0.5);  /* 在元素下方加一層半透明的黑色陰影 */
+	}
+
+	#square a {
+		display: block;
+		margin: 10px 0;
+		color: #FFD27F;
+		font-size: 0.9em;
+		padding: 10px;
+		border-radius: 8px;
+		writing-mode: vertical-rl;    /* 讓文字垂直顯示（可改掉） */
+		text-orientation: mixed;
+		transition: 0.3s;
+	}
+
+	#square a:hover {
+		background-color: #FFD27F;
+		color: #000;
+	}
+}
+
+/* ---------- content ---------- */
+content {
+    padding: 30px;
+    line-height: 1.7em;
+}
+h2.section {
+    color: #FFB677;
+    font-family: 'Consolas', monospace;
+    border-left: 4px solid #FFD27F;
+    padding-left: 10px;
+    margin-top: 40px;
+}
+
+/* ---------- table ---------- */
+table {
+    background-color: #222222;
+    width: 100%;
+    margin: 20px 0;
+    box-shadow: 0 0 8px rgba(0,0,0,0.9);
+	border-radius: 10px;
+	border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+}
+th {
+	background-color: #2A2A2A;
+    color: #FFB677;
+    font-family: 'Consolas', monospace;
+    text-align: center;
+    border: 1px solid #333333;
+    padding: 10px;
+}
+td {
+    background-color: #2A2A2A;
+	color: #FFDFC2;
+	font-family: 'Consolas', monospace;
+	text-align: center;
+	border: 1px solid #333333;
+    padding: 10px;
+}
+
+td.left {
+	text-align: left;
+    padding-left: 12px;
+}
+
+/* ---------- blockquote ---------- */
+blockquote {
+    background-color: #1E1E1E;
+    color: #FFDFC2;
+    padding: 5px 20px;
+    margin: 10px 0;
+}
+
+/* ---------- footer ---------- */
+.end {
+  background-color: #252526;
+  text-align: center;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 2px 2px;
+  margin: 0px 20px 40px 20px;
+
+}
